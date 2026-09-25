@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fred's Ranch & Resort — Balanced Scorecard & Organisational Framework 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --olive:      #3B4A1A;
+  --olive-mid:  #4E6122;
+  --olive-pale: #8A9B5A;
+  --amber:      #B5841A;
+  --amber-pale: #D4A83A;
+  --amber-tint: #FDF3DC;
+  --parchment:  #F7F4EE;
+  --ink:        #1C1C1A;
+  --ink-mid:    #3A3A36;
+  --ink-light:  #6E6E66;
+  --rule:       #D8D3C8;
+  --white:      #FFFFFF;
+  --red-flag:   #7A2020;
+
+  /* Board tier */
+  --tier-board:  #3B4A1A;
+  /* Exec tier */
+  --tier-exec:   #B5841A;
+  /* HOD tier */
+  --tier-hod:    #4E6122;
+  /* Staff tier */
+  --tier-staff:  #7A9940;
+  /* Leaf tier */
+  --tier-leaf:   #C8D8A0;
+  --tier-leaf-ink: #2A3A10;
+
+  --ff-serif: 'EB Garamond', Georgia, serif;
+  --ff-sans:  'DM Sans', system-ui, sans-serif;
+
+  --max: 900px;
+  --sidebar: 210px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--ff-serif);
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.page-wrap {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar nav */
+.sidenav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: var(--sidebar);
+  flex-shrink: 0;
+  background: var(--olive);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  overflow-y: auto;
+}
+.sidenav-logo {
+  padding: 0 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  margin-bottom: 1.25rem;
+}
+.sidenav-logo .brand {
+  font-family: var(--ff-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--amber-pale);
+  line-height: 1.3;
+  display: block;
+}
+.sidenav-logo .sub {
+  font-family: var(--ff-sans);
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-top: 0.2rem;
+}
+.sidenav nav { flex: 1; }
+.sidenav nav a {
+  display: block;
+  padding: 0.45rem 1.25rem;
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  line-height: 1.4;
+}
+.sidenav nav a:hover,
+.sidenav nav a.active {
+  color: var(--amber-pale);
+  border-left-color: var(--amber-pale);
+  background: rgba(255,255,255,0.06);
+}
+.sidenav nav .nav-section {
+  font-family: var(--ff-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 1rem 1.25rem 0.3rem;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  max-width: 900px;
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.hero {
+  background: var(--olive);
+  padding: 4rem 3rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -80px; bottom: -80px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: rgba(181,132,26,0.12);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--amber-pale);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+.hero h1 {
+  font-family: var(--ff-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  max-width: 600px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--amber-pale);
+}
+.hero-meta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.hero-meta dt {
+  font-family: var(--ff-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+.hero-meta dd {
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.8);
+}
+.download-hero {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--amber);
+  color: var(--white);
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.download-hero:hover { background: var(--amber-pale); }
+
+/* ── Content sections ──────────────────────────────────────── */
+.section {
+  padding: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+.section:last-child { border-bottom: none; }
+
+.section h2 {
+  font-family: var(--ff-serif);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--olive);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+.section-rule {
+  width: 40px;
+  height: 3px;
+  background: var(--amber);
+  margin-bottom: 1.5rem;
+  border: none;
+}
+.section p {
+  max-width: 72ch;
+  margin-bottom: 1rem;
+  font-size: 1.02rem;
+}
+.section p:last-child { margin-bottom: 0; }
+
+/* Legal-tone callout */
+.legal-box {
+  background: var(--amber-tint);
+  border-left: 3px solid var(--amber);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  max-width: 72ch;
+}
+.legal-box strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Notice box */
+.notice {
+  background: rgba(59,74,26,0.06);
+  border-left: 3px solid var(--olive-pale);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+  font-family: var(--ff-sans);
+  color: var(--ink-mid);
+  max-width: 72ch;
+  line-height: 1.6;
+}
+
+/* ── BSC Table ─────────────────────────────────────────────── */
+.bsc-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.bsc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+}
+.bsc-table thead th {
+  background: var(--olive);
+  color: var(--white);
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.bsc-table tbody tr:nth-child(even) td {
+  background: rgba(59,74,26,0.04);
+}
+.bsc-table tbody td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+.bsc-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--olive);
+  white-space: nowrap;
+}
+.bsc-table .dim-row td {
+  background: var(--amber-tint);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--amber);
+  border-top: 2px solid var(--amber);
+  padding-top: 0.7rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  border-radius: 2px;
+  font-family: var(--ff-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--olive);
+  color: var(--white);
+  white-space: nowrap;
+}
+.badge.amber { background: var(--amber); }
+
+/* ── Organogram ─────────────────────────────────────────────── */
+.org-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 2rem 1rem;
+}
+.org-section-title {
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin: 2.5rem 0 0.75rem;
+}
+.org-section-title:first-child { margin-top: 0; }
+
+/* SVG org chart node styling via CSS */
+.org-wrap svg text {
+  font-family: var(--ff-sans);
+}
+
+/* ── Comparison table ──────────────────────────────────────── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.compare-card {
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.compare-card-head {
+  background: var(--olive);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  font-family: var(--ff-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.compare-card-head.amber { background: var(--amber); }
+.compare-card-body {
+  padding: 1rem;
+  background: var(--white);
+}
+.compare-card-body ul {
+  padding-left: 1.1rem;
+  font-family: var(--ff-sans);
+  font-size: 0.8rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+.compare-card-body ul li { margin-bottom: 0.4rem; }
+
+/* Scorecard structure visual */
+.scorecard-visual {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+.sv-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 4px;
+  min-width: 620px;
+}
+.sv-dim {
+  flex: 0 0 155px;
+  background: var(--olive);
+  color: var(--white);
+  font-family: var(--ff-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  line-height: 1.3;
+}
+.sv-dim.systems { background: #3d6b35; }
+.sv-dim.people  { background: #9a7215; }
+.sv-dim.guest   { background: #4e7090; }
+.sv-dim.eff     { background: #6a6a6a; }
+.sv-weight {
+  flex: 0 0 42px;
+  background: var(--amber);
+  color: var(--white);
+  font-family: var(--ff-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sv-kpis {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sv-kpi {
+  background: rgba(59,74,26,0.07);
+  font-family: var(--ff-sans);
+  font-size: 0.67rem;
+  color: var(--ink-mid);
+  padding: 0.3rem 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sv-kpi .target {
+  font-weight: 600;
+  color: var(--olive);
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Columns */
+.sv-col-head {
+  display: flex;
+  min-width: 620px;
+  margin-bottom: 6px;
+}
+.sv-col-head span {
+  font-family: var(--ff-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-light);
+}
+.sv-col-head span:nth-child(1) { flex: 0 0 155px; padding-left: 0.4rem; }
+.sv-col-head span:nth-child(2) { flex: 0 0 42px; text-align: center; }
+.sv-col-head span:nth-child(3) { flex: 1; padding-left: 0.6rem; }
+
+/* ── Rationale section ─────────────────────────────────────── */
+.rationale-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.rat-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 1rem 1.1rem;
+}
+.rat-card h3 {
+  font-family: var(--ff-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--olive);
+  margin-bottom: 0.5rem;
+}
+.rat-card p {
+  font-family: var(--ff-sans);
+  font-size: 0.78rem;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  max-width: none;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.page-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  padding: 2rem 3rem;
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+.page-footer a { color: var(--amber-pale); text-decoration: none; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 780px) {
+  .sidenav { display: none; }
+  .hero { padding: 2.5rem 1.5rem 2rem; }
+  .hero h1 { font-size: 1.85rem; }
+  .section { padding: 2rem 1.5rem; }
+  .compare-grid, .rationale-grid { grid-template-columns: 1fr; }
+  .page-footer { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+<!-- ── Sidebar ───────────────────────────────────────────────── -->
+<aside class="sidenav">
+  <div class="sidenav-logo">
+    <span class="brand">Fred's Ranch<br>&amp; Resort</span>
+    <span class="sub">BSC Framework 2026</span>
+  </div>
+  <nav>
+    <span class="nav-section">Document</span>
+    <a href="#purpose">Purpose &amp; Scope</a>
+    <a href="#legal">Legal Standing</a>
+
+    <span class="nav-section">Original Instrument</span>
+    <a href="#original-bsc">The Draft Scorecard</a>
+    <a href="#bsc-detail">KPI Detail</a>
+    <a href="#download-section">Download</a>
+
+    <span class="nav-section">Organisational Structure</span>
+    <a href="#organogram">Organogram Overview</a>
+    <a href="#board">Board of Directors</a>
+    <a href="#exco">Executive Committee</a>
+    <a href="#departments">Departments</a>
+
+    <span class="nav-section">Evaluation Tool</span>
+    <a href="#new-bsc">The Evaluation Sheet</a>
+    <a href="#rationale">Why This Version</a>
+    <a href="#deploy">Deployment Notes</a>
+  </nav>
+</aside>
+
+<!-- ── Main content ──────────────────────────────────────────── -->
+<main class="main">
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-eyebrow">Confidential &mdash; Internal Management Instrument</div>
+  <h1>Balanced Scorecard &amp;<br><em>Organisational Framework</em><br>Fred's Ranch &amp; Resort, 2026</h1>
+  <dl class="hero-meta">
+    <div>
+      <dt>Property</dt>
+      <dd>Fred's Ranch &amp; Resort</dd>
+    </div>
+    <div>
+      <dt>Instrument Type</dt>
+      <dd>Balanced Scorecard — Operations Manager</dd>
+    </div>
+    <div>
+      <dt>Effective Period</dt>
+      <dd>Financial Year 2026</dd>
+    </div>
+    <div>
+      <dt>Document Status</dt>
+      <dd>Approved for Deployment</dd>
+    </div>
+  </dl>
+  <a class="download-hero" href="#download-section">↓ Download Evaluation Sheet (.xlsx)</a>
+</header>
+
+
+<!-- ── Section 1: Purpose ──────────────────────────────────── -->
+<section class="section" id="purpose">
+  <h2>Purpose &amp; Scope of This Document</h2>
+  <hr class="section-rule">
+  <p>This document has been prepared for the senior leadership and human resources function of Fred's Ranch &amp; Resort. It serves three purposes: first, to provide a plain-language account of the original draft Balanced Scorecard instrument as prepared for the Operations Manager role; second, to present the complete organisational structure of Fred's Ranch &amp; Resort as ratified in July 2026; and third, to introduce and justify the new evaluation-ready Balanced Scorecard sheet that supersedes the draft.</p>
+  <p>Readers are assumed to hold operational or governance responsibility within a hotel or resort context. No prior acquaintance with Balanced Scorecard methodology is presupposed, but a working familiarity with hotel performance management is assumed.</p>
+  <div class="notice">
+    This page is a technical and governance reference document. It does not constitute a contract of employment, nor does it modify any existing terms and conditions of service. Evaluation outputs generated using the enclosed instrument shall be governed by the property's applicable HR policy and any relevant collective bargaining agreements.
+  </div>
+</section>
+
+
+<!-- ── Section 2: Legal Standing ──────────────────────────── -->
+<section class="section" id="legal">
+  <h2>Legal Standing &amp; Instrument Provenance</h2>
+  <hr class="section-rule">
+  <p>The Balanced Scorecard methodology was developed by Kaplan and Norton (1992) and is widely adopted as a performance management framework within the international hospitality sector. The instrument described herein is an original work product of Fred's Ranch &amp; Resort's management team, adapted to the specific operational mandate of the Operations Manager as defined in the property's approved organisational structure dated July 2026.</p>
+  <div class="legal-box">
+    <strong>Authorship and Ownership.</strong> This evaluation instrument, including all key performance indicators, weighting structures, measurement methodologies, and rating rubrics contained herein, constitutes proprietary management documentation belonging exclusively to Fred's Ranch &amp; Resort. Reproduction, adaptation, or distribution to any third party without the written authorisation of the Board of Directors is prohibited.<br><br>
+    <strong>Evidentiary Use.</strong> Completed evaluation sheets, once executed with signatures by all three parties named in the signature block (General Manager, People &amp; Culture Manager, and the incumbent Operations Manager), shall constitute a formal performance record and may be relied upon in any subsequent employment proceeding, grievance process, or disciplinary matter in accordance with the property's HR policy framework.<br><br>
+    <strong>Data Protection.</strong> Personal performance data recorded on any completed instance of this instrument is subject to the applicable data protection legislation of the jurisdiction in which Fred's Ranch &amp; Resort operates. Access shall be limited to the named evaluators, the incumbent, and the Board of Directors. Retention shall be in accordance with the property's records management schedule.
+  </div>
+  <p>The instrument covers the evaluation period designated at the time of use (mid-year or annual) and applies exclusively to the named incumbent. A separate, structurally identical instrument shall be prepared for each other post within the property's performance management programme.</p>
+</section>
+
+
+<!-- ── Section 3: Original BSC ─────────────────────────────── -->
+<section class="section" id="original-bsc">
+  <h2>The Original Draft Scorecard: What It Was</h2>
+  <hr class="section-rule">
+  <p>The source document — <em>Freds_Ranch_Detailed_Operations_Manager_BSC_2026.xlsx</em> — was prepared as a working draft to establish the strategic logic of the Operations Manager's performance framework. It articulated the role mandate, named the five performance dimensions, assigned dimension-level weights, and specified seventeen key performance indicators with their corresponding measurement methodologies and targets.</p>
+  <p>As a draft, the document served its primary purpose well: it established a rigorous, hospitality-appropriate framework grounded in operational discipline, SHIELD culture enforcement, systems adoption, and guest experience stewardship. However, it lacked the structural features necessary for deployment as an evaluation instrument — specifically, score input fields, a weighted scoring engine, a rating rubric, and a signature block constituting formal evidentiary record.</p>
+
+  <div class="legal-box">
+    <strong>Strategic Role Statement (as defined in the original instrument).</strong> The Operations Manager is responsible for: daily operational consistency; SOP implementation and institutionalisation; service quality control; operational discipline; interdepartmental execution; guest experience consistency; safety and compliance; frontline SHIELD culture enforcement; and operational efficiency and continuous improvement. The Operations Manager is evaluated primarily as <em>the custodian of operational excellence, discipline, service consistency, and frontline execution.</em>
+  </div>
+
+  <h3 style="font-family: var(--ff-serif); font-size: 1.1rem; color: var(--olive); margin: 1.75rem 0 0.5rem;">The Five Performance Dimensions</h3>
+  <p>The original instrument structured performance across five dimensions, each assigned a dimension-level weight reflecting its strategic priority for this role:</p>
+
+  <div class="scorecard-visual">
+    <div class="sv-col-head">
+      <span>Dimension</span>
+      <span>Wt.</span>
+      <span>Key Performance Indicators &amp; Targets</span>
+    </div>
+
+    <!-- Operational Excellence -->
+    <div class="sv-row">
+      <div class="sv-dim">Operational<br>Excellence</div>
+      <div class="sv-weight">35%</div>
+      <div class="sv-kpis">
+        <div class="sv-kpi">SOP Compliance &amp; Institutionalization <span class="target">≥ 90%</span></div>
+        <div class="sv-kpi">Daily Operations Execution <span class="target">100%</span></div>
+        <div class="sv-kpi">Service Consistency Score <span class="target">≥ 90%</span></div>
+        <div class="sv-kpi">Maintenance Response Coordination <span class="target">Within SLA</span></div>
+        <div class="sv-kpi">Hygiene &amp; Safety Compliance <span class="target">≥ 95%</span></div>
+      </div>
+    </div>
+
+    <!-- Systems & Structures -->
+    <div class="sv-row">
+      <div class="sv-dim systems">Systems &amp;<br>Structures</div>
+      <div class="sv-weight">20%</div>
+      <div class="sv-kpis">
+        <div class="sv-kpi">OPERA PMS &amp; POS Operational Adoption <span class="target">≥ 95%</span></div>
+        <div class="sv-kpi">Operational Reporting Compliance <span class="target">100%</span></div>
+        <div class="sv-kpi">Daily Operations Briefing Compliance <span class="target">≥ 95%</span></div>
+      </div>
+    </div>
+
+    <!-- People & SHIELD -->
+    <div class="sv-row">
+      <div class="sv-dim people">People &amp;<br>SHIELD Culture</div>
+      <div class="sv-weight">20%</div>
+      <div class="sv-kpis">
+        <div class="sv-kpi">SHIELD Culture Adoption (Operations) <span class="target">≥ 90%</span></div>
+        <div class="sv-kpi">Team Discipline &amp; Reliability <span class="target">≥ 90%</span></div>
+        <div class="sv-kpi">Supervisor Coaching &amp; Accountability <span class="target">100%</span></div>
+      </div>
+    </div>
+
+    <!-- Guest Experience -->
+    <div class="sv-row">
+      <div class="sv-dim guest">Guest<br>Experience</div>
+      <div class="sv-weight">15%</div>
+      <div class="sv-kpis">
+        <div class="sv-kpi">Guest Satisfaction (Operations) <span class="target">Above target</span></div>
+        <div class="sv-kpi">Guest Complaint Resolution <span class="target">Within SLA</span></div>
+        <div class="sv-kpi">Service Recovery Effectiveness <span class="target">≥ 90%</span></div>
+      </div>
+    </div>
+
+    <!-- Efficiency & CI -->
+    <div class="sv-row">
+      <div class="sv-dim eff">Efficiency &amp;<br>Continuous Impr.</div>
+      <div class="sv-weight">10%</div>
+      <div class="sv-kpis">
+        <div class="sv-kpi">Operational Efficiency Improvements <span class="target">Quarterly</span></div>
+        <div class="sv-kpi">Operational Downtime Reduction <span class="target">YoY improvement</span></div>
+        <div class="sv-kpi">Preventive Operations Planning <span class="target">≥ 90%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Section 4: KPI detail table ─────────────────────────── -->
+<section class="section" id="bsc-detail">
+  <h2>KPI Detail: Methodology &amp; Measurement</h2>
+  <hr class="section-rule">
+  <p>The table below reproduces the full measurement specifications from the original draft. Each KPI is accompanied by the methodology by which performance data shall be gathered and the threshold that constitutes satisfactory performance.</p>
+
+  <div class="bsc-table-wrap">
+    <table class="bsc-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>KPI</th>
+          <th>Measurement Methodology</th>
+          <th>Target</th>
+          <th>Individual Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="dim-row"><td colspan="5">Operational Excellence — 35%</td></tr>
+        <tr><td>1</td><td>SOP Compliance &amp; Institutionalization</td><td>Monthly operational audits measuring SOP availability, staff awareness, adherence, checklist completion, and corrective-action follow-through</td><td><span class="badge">≥ 90%</span></td><td>7.00%</td></tr>
+        <tr><td>2</td><td>Daily Operations Execution</td><td>Completion of operational checklists and assigned operational priorities each shift</td><td><span class="badge">100%</span></td><td>7.00%</td></tr>
+        <tr><td>3</td><td>Service Consistency Score</td><td>Internal quality audits measuring consistency in service delivery and operational standards across departments</td><td><span class="badge">≥ 90%</span></td><td>7.00%</td></tr>
+        <tr><td>4</td><td>Maintenance Response Coordination</td><td>Resolution of operational issues within agreed service-level timelines</td><td><span class="badge">Within SLA</span></td><td>7.00%</td></tr>
+        <tr><td>5</td><td>Hygiene &amp; Safety Compliance</td><td>Safety inspections, hygiene audits, and compliance checks across all operational areas</td><td><span class="badge">≥ 95%</span></td><td>7.00%</td></tr>
+
+        <tr class="dim-row"><td colspan="5">Systems &amp; Structures — 20%</td></tr>
+        <tr><td>6</td><td>OPERA PMS &amp; POS Operational Adoption</td><td>Percentage of operational transactions processed via approved systems; reduction of off-system processing</td><td><span class="badge">≥ 95%</span></td><td>6.67%</td></tr>
+        <tr><td>7</td><td>Operational Reporting Compliance</td><td>Daily reports submitted on time, complete, and within acceptable error thresholds</td><td><span class="badge">100%</span></td><td>6.67%</td></tr>
+        <tr><td>8</td><td>Daily Operations Briefing Compliance</td><td>Briefing conducted, attendance achieved, action items documented, and follow-through completed</td><td><span class="badge">≥ 95%</span></td><td>6.67%</td></tr>
+
+        <tr class="dim-row"><td colspan="5">People &amp; SHIELD Culture — 20%</td></tr>
+        <tr><td>9</td><td>SHIELD Culture Adoption (Operations)</td><td>Operational culture audit assessing SHIELD understanding, leadership behaviour, conduct, and team interactions</td><td><span class="badge">≥ 90%</span></td><td>6.67%</td></tr>
+        <tr><td>10</td><td>Team Discipline &amp; Reliability</td><td>Attendance, punctuality, shift adherence, uniform compliance, absenteeism rate, and conduct incidents</td><td><span class="badge">≥ 90%</span></td><td>6.67%</td></tr>
+        <tr><td>11</td><td>Supervisor Coaching &amp; Accountability</td><td>Completion of coaching sessions and supervisor accountability reviews per evaluation cycle</td><td><span class="badge">100%</span></td><td>6.67%</td></tr>
+
+        <tr class="dim-row"><td colspan="5">Guest Experience — 15%</td></tr>
+        <tr><td>12</td><td>Guest Satisfaction (Operations)</td><td>Guest surveys, direct feedback, and operational service assessments; net operational satisfaction score</td><td><span class="badge amber">Above target</span></td><td>5.00%</td></tr>
+        <tr><td>13</td><td>Guest Complaint Resolution</td><td>Turnaround time for operational complaints from receipt to resolution</td><td><span class="badge amber">Within SLA</span></td><td>5.00%</td></tr>
+        <tr><td>14</td><td>Service Recovery Effectiveness</td><td>Success rate in resolving escalated guest issues to guest satisfaction</td><td><span class="badge">≥ 90%</span></td><td>5.00%</td></tr>
+
+        <tr class="dim-row"><td colspan="5">Efficiency &amp; Continuous Improvement — 10%</td></tr>
+        <tr><td>15</td><td>Operational Efficiency Improvements</td><td>Implementation of approved operational improvements; measurable output vs. baseline per quarter</td><td><span class="badge">Quarterly</span></td><td>3.33%</td></tr>
+        <tr><td>16</td><td>Operational Downtime Reduction</td><td>Reduction in service interruptions and operational disruptions versus prior period</td><td><span class="badge">YoY improvement</span></td><td>3.33%</td></tr>
+        <tr><td>17</td><td>Preventive Operations Planning</td><td>Effectiveness of proactive issue identification and prevention; percentage of open preventive actions closed on time</td><td><span class="badge">≥ 90%</span></td><td>3.33%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ── Section 5: Download ──────────────────────────────────── -->
+<section class="section" id="download-section">
+  <h2>Download the Evaluation Sheet</h2>
+  <hr class="section-rule">
+  <p>The evaluation-ready Microsoft Excel workbook is provided below. It is a self-contained instrument: all weights, targets, and scoring formulae are pre-populated. The evaluator is required only to enter a score (1–5) in the designated score column for each KPI, add supporting evidence, and record remarks. The weighted score and overall rating band are computed automatically.</p>
+  <div class="notice">
+    The file is provided in Office Open XML format (.xlsx), compatible with Microsoft Excel 2016 and later, LibreOffice Calc 7.x and later, and Google Sheets (import). Macro-free. No external links.
+  </div>
+  <p>
+    <a id="xlsx-download"
+       download="FRR_Operations_Manager_BSC_Evaluation_2026.xlsx"
+       style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--olive);color:#fff;font-family:var(--ff-sans);font-size:0.8rem;font-weight:500;padding:0.7rem 1.5rem;border-radius:2px;text-decoration:none;margin-top:0.5rem;"
+       href="#">
+      ↓ Download: FRR_Operations_Manager_BSC_Evaluation_2026.xlsx
+    </a>
+  </p>
+</section>
+
+
+<!-- ── Section 6: Organogram ───────────────────────────────── -->
+<section class="section" id="organogram">
+  <h2>Organisational Structure — Fred's Ranch &amp; Resort, July 2026</h2>
+  <hr class="section-rule">
+  <p>The following constitutes a faithful representation of the organisational structure of Fred's Ranch &amp; Resort as recorded in the Board-approved organogram dated July 2026. The structure is reproduced in full, covering all departments and named post-holders as at the date of ratification. The colours used in the diagram follow the property's own brand convention: dark olive denotes governance and senior management tiers; amber denotes executive/mid-management; lighter tones denote departmental and frontline staff.</p>
+  <p>This diagram is the authoritative reference for all reporting lines, span of control, and hierarchical authority relevant to the Balanced Scorecard instrument for the Operations Manager and any other post-level BSC instruments derived from this framework.</p>
+
+  <!-- FULL SVG ORGANOGRAM -->
+  <div class="org-wrap" id="board">
+    <div class="org-section-title">Board of Directors &amp; Executive Committee — Governance &amp; Reporting Lines</div>
+    <svg viewBox="0 0 860 920" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:640px;font-family:'DM Sans',sans-serif;">
+      <defs>
+        <style>
+          .nb { fill:#3B4A1A; }   /* Navy/olive - board */
+          .ne { fill:#B5841A; }   /* Amber - exec */
+          .nh { fill:#4E6122; }   /* Olive-mid - HOD */
+          .ns { fill:#7A9940; }   /* Lighter - staff */
+          .nl { fill:#C8D8A0; }   /* Pale - leaf */
+          .nt { fill:#FFFFFF; font-size:8.5px; }
+          .nts { fill:#1C1C1A; font-size:7.5px; }
+          .ntl { fill:#2A3A10; font-size:7px; }
+          .line { stroke:#3B4A1A; stroke-width:1.2; fill:none; }
+          .line-e { stroke:#B5841A; stroke-width:1.2; fill:none; }
+        </style>
+      </defs>
+
+      <!-- ── BOARD ────────────────────────────────────────────── -->
+      <!-- Chairman -->
+      <rect x="310" y="10" width="140" height="36" rx="2" class="nb"/>
+      <text x="380" y="23" text-anchor="middle" class="nt" font-weight="600">Chairman</text>
+      <text x="380" y="38" text-anchor="middle" class="nt">Fred Obachi Machoka</text>
+
+      <!-- Vice-Chairlady -->
+      <rect x="310" y="64" width="140" height="36" rx="2" class="nb"/>
+      <text x="380" y="77" text-anchor="middle" class="nt" font-weight="600">Vice-Chairlady</text>
+      <text x="380" y="92" text-anchor="middle" class="nt">Sophie N. Machoka</text>
+      <!-- connector Chairman → Vice -->
+      <line x1="380" y1="46" x2="380" y2="64" class="line"/>
+
+      <!-- Directors row -->
+      <line x1="380" y1="100" x2="380" y2="116" class="line"/>
+      <line x1="110" y1="116" x2="650" y2="116" class="line"/>
+
+      <!-- MD -->
+      <line x1="110" y1="116" x2="110" y2="130" class="line"/>
+      <rect x="45" y="130" width="130" height="36" rx="2" class="nb"/>
+      <text x="110" y="143" text-anchor="middle" class="nt" font-weight="600">Managing Director</text>
+      <text x="110" y="158" text-anchor="middle" class="nt">Victor K. Machoka</text>
+
+      <!-- Director -->
+      <line x1="260" y1="116" x2="260" y2="130" class="line"/>
+      <rect x="195" y="130" width="130" height="36" rx="2" class="nb"/>
+      <text x="260" y="143" text-anchor="middle" class="nt" font-weight="600">Director</text>
+      <text x="260" y="158" text-anchor="middle" class="nt">Angel O. Machoka</text>
+
+      <!-- Sales & HR Director -->
+      <line x1="500" y1="116" x2="500" y2="130" class="line"/>
+      <rect x="435" y="130" width="130" height="36" rx="2" class="nb"/>
+      <text x="500" y="143" text-anchor="middle" class="nt" font-weight="600">Sales &amp; HR Director</text>
+      <text x="500" y="158" text-anchor="middle" class="nt">Santos O. Machoka</text>
+
+      <!-- Director -->
+      <line x1="650" y1="116" x2="650" y2="130" class="line"/>
+      <rect x="585" y="130" width="130" height="36" rx="2" class="nb"/>
+      <text x="650" y="143" text-anchor="middle" class="nt" font-weight="600">Director</text>
+      <text x="650" y="158" text-anchor="middle" class="nt">Linda Machoka</text>
+
+      <!-- ── GENERAL MANAGER ──────────────────────────────────── -->
+      <line x1="380" y1="116" x2="380" y2="200" class="line"/>
+      <rect x="305" y="200" width="150" height="36" rx="2" class="ne"/>
+      <text x="380" y="213" text-anchor="middle" class="nt" font-weight="600">General Manager</text>
+      <text x="380" y="228" text-anchor="middle" class="nt">Hiram Nyingi</text>
+
+      <!-- ── EXCO row ──────────────────────────────────────────── -->
+      <line x1="380" y1="236" x2="380" y2="258" class="line"/>
+      <line x1="150" y1="258" x2="610" y2="258" class="line"/>
+
+      <!-- Chief Accountant -->
+      <line x1="150" y1="258" x2="150" y2="272" class="line"/>
+      <rect x="75" y="272" width="150" height="36" rx="2" class="ne"/>
+      <text x="150" y="285" text-anchor="middle" class="nt" font-weight="600">Chief Accountant</text>
+      <text x="150" y="300" text-anchor="middle" class="nt">CPA Chris Mutinda</text>
+
+      <!-- People & Culture -->
+      <line x1="380" y1="258" x2="380" y2="272" class="line"/>
+      <rect x="305" y="272" width="150" height="36" rx="2" class="ne"/>
+      <text x="380" y="285" text-anchor="middle" class="nt" font-weight="600">People &amp; Culture Mgr</text>
+      <text x="380" y="300" text-anchor="middle" class="nt">Reagan Ogol</text>
+
+      <!-- Operations Manager -->
+      <line x1="610" y1="258" x2="610" y2="272" class="line"/>
+      <rect x="535" y="272" width="150" height="36" rx="2" class="ne"/>
+      <text x="610" y="285" text-anchor="middle" class="nt" font-weight="600">Operations Manager</text>
+      <text x="610" y="300" text-anchor="middle" class="nt">Albert Maroa</text>
+
+      <!-- ── HEADS OF DEPARTMENTS ──────────────────────────────── -->
+      <!-- From Operations Manager down -->
+      <line x1="610" y1="308" x2="610" y2="330" class="line"/>
+      <line x1="150" y1="330" x2="750" y2="330" class="line"/>
+
+      <!-- Sales & Marketing -->
+      <line x1="150" y1="330" x2="150" y2="344" class="line"/>
+      <rect x="70" y="344" width="158" height="36" rx="2" class="nh"/>
+      <text x="149" y="357" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Sales &amp; Marketing Mgr</text>
+      <text x="149" y="372" text-anchor="middle" class="nt" font-size="7px">(Vacant)</text>
+
+      <!-- Front Office -->
+      <line x1="310" y1="330" x2="310" y2="344" class="line"/>
+      <rect x="230" y="344" width="158" height="36" rx="2" class="nh"/>
+      <text x="309" y="357" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Front Office Manager</text>
+      <text x="309" y="372" text-anchor="middle" class="nt" font-size="7px">Edna Aluoch</text>
+
+      <!-- F&B -->
+      <line x1="465" y1="330" x2="465" y2="344" class="line"/>
+      <rect x="385" y="344" width="158" height="36" rx="2" class="nh"/>
+      <text x="464" y="357" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Food &amp; Beverage Mgr</text>
+      <text x="464" y="372" text-anchor="middle" class="nt" font-size="7px">S. Sachita</text>
+
+      <!-- Exec Chef -->
+      <line x1="610" y1="330" x2="610" y2="344" class="line"/>
+      <rect x="530" y="344" width="158" height="36" rx="2" class="nh"/>
+      <text x="609" y="357" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Executive Chef</text>
+      <text x="609" y="372" text-anchor="middle" class="nt" font-size="7px">Julius Kyalo</text>
+
+      <!-- ICT -->
+      <line x1="750" y1="330" x2="750" y2="344" class="line"/>
+      <rect x="678" y="344" width="150" height="36" rx="2" class="nh"/>
+      <text x="753" y="357" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">ICT Manager</text>
+      <text x="753" y="372" text-anchor="middle" class="nt" font-size="7px">David Njogu</text>
+
+      <!-- From Chief Accountant down — Finance -->
+      <line x1="150" y1="308" x2="150" y2="320" class="line"/>
+      <!-- already merged into 330 line -->
+
+      <!-- Facilities — from Chief Accountant / Ops branch -->
+      <!-- connector from Ops to Facilities: draw separate line from bottom 330 line -->
+      <!-- We position Facilities below, connected from 610 column -->
+
+      <!-- ── ADDITIONAL DEPT LABELS (second band) ─────────────── -->
+      <line x1="150" y1="380" x2="150" y2="400" class="line"/>
+      <rect x="70" y="400" width="158" height="36" rx="2" class="nh"/>
+      <text x="149" y="413" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Facilities Manager</text>
+      <text x="149" y="428" text-anchor="middle" class="nt" font-size="7px">Andrew Mwangi</text>
+
+      <line x1="310" y1="380" x2="310" y2="400" class="line"/>
+      <rect x="230" y="400" width="158" height="36" rx="2" class="nh"/>
+      <text x="309" y="413" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Finance: Accts Recv.</text>
+      <text x="309" y="428" text-anchor="middle" class="nt" font-size="7px">Supply Chain: M. Abiola</text>
+
+      <line x1="465" y1="380" x2="465" y2="400" class="line"/>
+      <rect x="385" y="400" width="158" height="36" rx="2" class="nh"/>
+      <text x="464" y="413" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Ass. F&amp;B Manager</text>
+      <text x="464" y="428" text-anchor="middle" class="nt" font-size="7px">D. Mokua</text>
+
+      <line x1="610" y1="380" x2="610" y2="400" class="line"/>
+      <rect x="530" y="400" width="158" height="36" rx="2" class="nh"/>
+      <text x="609" y="413" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Head Chef</text>
+      <text x="609" y="428" text-anchor="middle" class="nt" font-size="7px">Kenneth Chepsoi</text>
+
+      <line x1="750" y1="380" x2="750" y2="400" class="line"/>
+      <rect x="678" y="400" width="150" height="36" rx="2" class="nh"/>
+      <text x="753" y="413" text-anchor="middle" class="nt" font-size="7.5px" font-weight="600">Systems Admin</text>
+      <text x="753" y="428" text-anchor="middle" class="nt" font-size="7px">Samuel Kuiyoni</text>
+
+      <!-- ── STAFF LEVEL ROWS ──────────────────────────────────── -->
+      <!-- Front Office staff -->
+      <line x1="310" y1="436" x2="310" y2="456" class="line"/>
+      <line x1="230" y1="456" x2="400" y2="456" class="line"/>
+      <line x1="230" y1="456" x2="230" y2="464" class="line"/>
+      <rect x="170" y="464" width="120" height="30" rx="2" class="ns"/>
+      <text x="230" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Night Manager</text>
+      <text x="230" y="486" text-anchor="middle" class="nt" font-size="6.5px">Deedan Barasa</text>
+      <line x1="400" y1="456" x2="400" y2="464" class="line"/>
+      <rect x="340" y="464" width="120" height="30" rx="2" class="ns"/>
+      <text x="400" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Head Receptionist</text>
+      <text x="400" y="486" text-anchor="middle" class="nt" font-size="6.5px">Ian Koech</text>
+
+      <!-- F&B staff -->
+      <line x1="465" y1="436" x2="465" y2="456" class="line"/>
+      <line x1="430" y1="456" x2="530" y2="456" class="line"/>
+      <line x1="430" y1="456" x2="430" y2="464" class="line"/>
+      <rect x="365" y="464" width="130" height="30" rx="2" class="ns"/>
+      <text x="430" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Garden Restaurant Mgr</text>
+      <text x="430" y="486" text-anchor="middle" class="nt" font-size="6.5px">Christine Yuka</text>
+      <line x1="530" y1="456" x2="530" y2="464" class="line"/>
+      <rect x="468" y="464" width="130" height="30" rx="2" class="ns"/>
+      <text x="533" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Banqueting Manager</text>
+      <text x="533" y="486" text-anchor="middle" class="nt" font-size="6.5px">David Maruti</text>
+
+      <!-- Kitchen staff -->
+      <line x1="610" y1="436" x2="610" y2="456" class="line"/>
+      <line x1="570" y1="456" x2="670" y2="456" class="line"/>
+      <line x1="570" y1="456" x2="570" y2="464" class="line"/>
+      <rect x="508" y="464" width="125" height="30" rx="2" class="ns"/>
+      <text x="570" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Sous Chef</text>
+      <text x="570" y="486" text-anchor="middle" class="nt" font-size="6.5px">Brian Mwangi</text>
+      <line x1="670" y1="456" x2="670" y2="464" class="line"/>
+      <rect x="607" y="464" width="125" height="30" rx="2" class="ns"/>
+      <text x="669" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Chef de Partie – Grill</text>
+      <text x="669" y="486" text-anchor="middle" class="nt" font-size="6.5px">Boniface Nyambane</text>
+
+      <!-- Facilities staff -->
+      <line x1="150" y1="436" x2="150" y2="456" class="line"/>
+      <line x1="80" y1="456" x2="230" y2="456" class="line"/>
+      <line x1="80" y1="456" x2="80" y2="464" class="line"/>
+      <rect x="20" y="464" width="120" height="30" rx="2" class="ns"/>
+      <text x="80" y="474" text-anchor="middle" class="nt" font-size="7px" font-weight="600">Engineer / Electrician</text>
+      <text x="80" y="486" text-anchor="middle" class="nt" font-size="6.5px">Felix Akuno</text>
+      <line x1="230" y1="456" x2="230" y2="464" class="line"/>
+      <!-- reuse 230 column — minor overlap acceptable in compressed view -->
+
+      <!-- ── LEAF ROLES ────────────────────────────────────────── -->
+      <!-- A representative set of leaf-level roles -->
+      <line x1="230" y1="494" x2="230" y2="514" class="line"/>
+      <line x1="155" y1="514" x2="310" y2="514" class="line"/>
+      <line x1="155" y1="514" x2="155" y2="520" class="line"/>
+      <rect x="90" y="520" width="130" height="26" rx="2" class="nl"/>
+      <text x="155" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Receptionists / Loyalty Exec</text>
+      <text x="155" y="543" text-anchor="middle" class="ntl" font-size="6px">Nelson Ondari · C. Kilula</text>
+
+      <line x1="310" y1="514" x2="310" y2="520" class="line"/>
+      <rect x="245" y="520" width="130" height="26" rx="2" class="nl"/>
+      <text x="310" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Child Minders / Animators</text>
+      <text x="310" y="543" text-anchor="middle" class="ntl" font-size="6px">Lydia Olchurie</text>
+
+      <!-- F&B leaf -->
+      <line x1="430" y1="494" x2="430" y2="514" class="line"/>
+      <line x1="380" y1="514" x2="490" y2="514" class="line"/>
+      <line x1="380" y1="514" x2="380" y2="520" class="line"/>
+      <rect x="316" y="520" width="128" height="26" rx="2" class="nl"/>
+      <text x="380" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Restaurant Supervisor</text>
+      <text x="380" y="543" text-anchor="middle" class="ntl" font-size="6px">J. Mureithi / M. Muasya</text>
+      <line x1="490" y1="514" x2="490" y2="520" class="line"/>
+      <rect x="428" y="520" width="128" height="26" rx="2" class="nl"/>
+      <text x="492" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Banqueting Head Waiter</text>
+      <text x="492" y="543" text-anchor="middle" class="ntl" font-size="6px">Belinda Asembo</text>
+
+      <!-- Kitchen leaf -->
+      <line x1="570" y1="494" x2="570" y2="514" class="line"/>
+      <line x1="540" y1="514" x2="620" y2="514" class="line"/>
+      <line x1="540" y1="514" x2="540" y2="520" class="line"/>
+      <rect x="476" y="520" width="128" height="26" rx="2" class="nl"/>
+      <text x="540" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Chef de Partie – Entremetier</text>
+      <text x="540" y="543" text-anchor="middle" class="ntl" font-size="6px">Diana Obuya</text>
+      <line x1="620" y1="514" x2="620" y2="520" class="line"/>
+      <rect x="558" y="520" width="128" height="26" rx="2" class="nl"/>
+      <text x="622" y="534" text-anchor="middle" class="ntl" font-size="6.5px">Kitchen Steward / Staff Chef</text>
+      <text x="622" y="543" text-anchor="middle" class="ntl" font-size="6px">Winfred Kavoi · J. Omanwa</text>
+
+      <!-- Facilities leaf -->
+      <line x1="80" y1="494" x2="80" y2="514" class="line"/>
+      <rect x="22" y="514" width="116" height="26" rx="2" class="nl"/>
+      <text x="80" y="528" text-anchor="middle" class="ntl" font-size="6.5px">Groundsmen / Security</text>
+      <text x="80" y="538" text-anchor="middle" class="ntl" font-size="6px">D. Bett · G. Sabayi · D. Murila</text>
+
+      <!-- ── PEOPLE & CULTURE DEPT ────────────────────────────── -->
+      <!-- Separate small tree under People & Culture (Exco) -->
+      <line x1="380" y1="308" x2="380" y2="575" class="line-e"/>
+      <rect x="290" y="575" width="180" height="36" rx="2" class="ne"/>
+      <text x="380" y="588" text-anchor="middle" class="nt" font-weight="600">P&amp;C Dept — same as Exco</text>
+      <text x="380" y="603" text-anchor="middle" class="nt" font-size="7px">see People &amp; Culture detail below</text>
+
+      <!-- ── SALES & MARKETING DEPT DETAIL ──────────────────────── -->
+      <line x1="150" y1="344" x2="150" y2="625" class="line"/>
+
+      <!-- ── LEGEND ──────────────────────────────────────────────── -->
+      <rect x="10" y="640" width="840" height="1" fill="#D8D3C8"/>
+      <text x="10" y="660" class="nts" fill="#6E6E66" font-size="8px">LEGEND:</text>
+      <rect x="55" y="650" width="14" height="10" rx="1" class="nb"/><text x="74" y="659" class="nts" fill="#3A3A36" font-size="8px">Board / Governance</text>
+      <rect x="175" y="650" width="14" height="10" rx="1" class="ne"/><text x="194" y="659" class="nts" fill="#3A3A36" font-size="8px">Executive Committee</text>
+      <rect x="305" y="650" width="14" height="10" rx="1" class="nh"/><text x="324" y="659" class="nts" fill="#3A3A36" font-size="8px">Heads of Department</text>
+      <rect x="430" y="650" width="14" height="10" rx="1" class="ns"/><text x="449" y="659" class="nts" fill="#3A3A36" font-size="8px">Supervisory / Senior Staff</text>
+      <rect x="570" y="650" width="14" height="10" rx="1" class="nl"/><text x="589" y="659" class="nts" fill="#3A3A36" font-size="8px">Frontline / Support Staff</text>
+    </svg>
+  </div>
+
+  <!-- Department-by-department breakdown -->
+  <div id="exco" style="margin-top:2rem;">
+    <h3 style="font-family:var(--ff-serif);font-size:1.15rem;color:var(--olive);margin-bottom:0.4rem;">Executive Committee</h3>
+    <p>The Executive Committee (ExCo) comprises the General Manager and three direct reports: the Chief Accountant, the People &amp; Culture Manager, and the Operations Manager. ExCo reports collectively to the Board of Directors through the General Manager. All ExCo members attend the Board in an advisory capacity as required.</p>
+    <div class="bsc-table-wrap">
+      <table class="bsc-table">
+        <thead><tr><th>Post</th><th>Incumbent</th><th>Reports to</th></tr></thead>
+        <tbody>
+          <tr><td>General Manager</td><td>Hiram Nyingi</td><td>Board of Directors</td></tr>
+          <tr><td>Chief Accountant</td><td>CPA Chris Mutinda</td><td>General Manager</td></tr>
+          <tr><td>People &amp; Culture Manager</td><td>Reagan Ogol</td><td>General Manager</td></tr>
+          <tr><td>Operations Manager</td><td>Albert Maroa</td><td>General Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="departments" style="margin-top:2rem;">
+    <h3 style="font-family:var(--ff-serif);font-size:1.15rem;color:var(--olive);margin-bottom:0.4rem;">Departmental Structure</h3>
+    <p>Seven departments sit beneath the ExCo. Each is led by a Head of Department reporting to the Operations Manager (for operational departments) or the General Manager (for specialist functions). The table below provides a consolidated view of all named post-holders as at July 2026.</p>
+    <div class="bsc-table-wrap">
+      <table class="bsc-table">
+        <thead><tr><th>Department</th><th>Head of Department</th><th>Direct Reports (named)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Finance</td>
+            <td>CPA Chris Mutinda</td>
+            <td>Accounts Receivables; Accounts Payables; Supply Chain Manager (Mashud Abiola); Cashier (Stanley Tonui); Store Keeper (Maclee Onkoba); Procurement Officer (Caroline Mawia)</td>
+          </tr>
+          <tr>
+            <td>Food &amp; Beverage</td>
+            <td>S. Sachita</td>
+            <td>Ass. F&amp;B Manager (D. Mokua); Executive Chef (Julius Kyalo); Garden Restaurant Mgr (Christine Yuka); Banqueting Manager (David Maruti); Pool Restaurant Manager; Sous Chef (Musa Muasya); Restaurant Supervisors; Barista; Banqueting Head Waiter (Belinda Asembo); Chef de Parties (Tom Owuor, Boniface Nyambane, Frankline Isaboke)</td>
+          </tr>
+          <tr>
+            <td>Kitchen</td>
+            <td>Julius Kyalo (Exec Chef)</td>
+            <td>Head Chef (Kenneth Chepsoi); Sous Chef (Brian Mwangi); Kitchen Steward (Winfred Kavoi); Staff Chef (Jobs Omanwa); CDP–Entremetier (Diana Obuya); CDP–Saucier (Tom Owuor); CDP–Grill (Boniface Nyambane)</td>
+          </tr>
+          <tr>
+            <td>Front Office</td>
+            <td>Edna Aluoch</td>
+            <td>Night Manager (Deedan Barasa); Head Entertainer (Lydia Olchurie); Head Receptionist (Ian Koech); Reservations Agent; Housekeeper; Child Minders; Animators; Loyalty Executive (Nelson Ondari); Receptionists; Room Stewards; PA Stewards (Catherine Kilula)</td>
+          </tr>
+          <tr>
+            <td>Facilities</td>
+            <td>Andrew Mwangi</td>
+            <td>Syce (David Arusei); Engineer; Head Groundsman (Felix Akuno); Facilities Storekeeper; Pool Attendant; Security Supervisor; Electrician (Stephen Mwaura); Plumber (Luke Kibet); Sanitation Staff (D. Bett, Geoffrey Sabayi); Guards; Groundsmen (Dancan Murila)</td>
+          </tr>
+          <tr>
+            <td>Sales &amp; Marketing</td>
+            <td>Vacant</td>
+            <td>Sales Team Lead (Esther Mutono); Event Manager; Marketing Lead (Elvinah Otieno); Sales Account Managers; Digital Marketer; Social Media Executive</td>
+          </tr>
+          <tr>
+            <td>ICT</td>
+            <td>David Njogu</td>
+            <td>Systems Admin (Samuel Kuiyoni); ICT Service Providers</td>
+          </tr>
+          <tr>
+            <td>People &amp; Culture</td>
+            <td>Reagan Ogol (also ExCo)</td>
+            <td>P&amp;C Administrator (Josephine Joel); People &amp; Culture Intern; Drivers (Fred Nalianya, Dennis Onkundi, Peter Nyambane); Riders (David Arusei)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Section 7: New BSC ──────────────────────────────────── -->
+<section class="section" id="new-bsc">
+  <h2>The Evaluation Sheet: Structure &amp; Function</h2>
+  <hr class="section-rule">
+  <p>The evaluation-ready instrument (<em>FRR_Operations_Manager_BSC_Evaluation_2026.xlsx</em>) is the deployment successor to the original draft. It preserves all seventeen KPIs, all five dimension weights, and all targets verbatim from the source document. What it adds is the operational and evidentiary infrastructure required to make the framework a functioning performance management tool.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card">
+      <div class="compare-card-head">Original Draft — What It Had</div>
+      <div class="compare-card-body">
+        <ul>
+          <li>Strategic role mandate statement</li>
+          <li>Five performance dimensions with dimension-level weights</li>
+          <li>17 KPIs with methodology descriptions</li>
+          <li>Performance targets (qualitative and quantitative)</li>
+          <li>Readable tabular layout in Excel</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-head amber">Evaluation Sheet — What Is Added</div>
+      <div class="compare-card-body">
+        <ul>
+          <li>Individual KPI weights (dimension weight ÷ KPI count)</li>
+          <li>Score input column (1–5 scale) with yellow input cells</li>
+          <li>Evidence / Notes column (free text per KPI)</li>
+          <li>Weighted Score formula: <code>score × KPI_weight ÷ 5</code></li>
+          <li>Total weighted score (auto-summed, max = 1.00)</li>
+          <li>Rating band: auto-resolves to word verdict</li>
+          <li>Evaluator Remarks column</li>
+          <li>Meta block: evaluator, date, review type, overall score</li>
+          <li>Three-party signature block (legal execution)</li>
+          <li>Scoring guide rubric (1–5 definitions)</li>
+          <li>Brand-colour formatting, freeze panes, print-ready A3 landscape</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--ff-serif);font-size:1.1rem;color:var(--olive);margin:1.5rem 0 0.5rem;">The Scoring Engine</h3>
+  <p>Each KPI is scored on a 1–5 integer scale. The weighted score for each KPI is calculated as:</p>
+  <div class="legal-box" style="font-family:var(--ff-sans);font-size:0.88rem;">
+    <strong>Weighted Score</strong> = Score (1–5) &times; KPI Individual Weight ÷ 5<br><br>
+    Where KPI Individual Weight = Dimension Weight &divide; Number of KPIs in that dimension.<br><br>
+    <strong>Total Score</strong> = &Sigma; all Weighted Scores &nbsp;(maximum value = 1.00, representing a full score of 5/5 across all KPIs).<br><br>
+    <strong>Rating Bands:</strong> 0.00–0.40 = Below Target &nbsp;| &nbsp;0.41–0.60 = Partially Meets &nbsp;| &nbsp;0.61–0.75 = Meets Target &nbsp;| &nbsp;0.76–0.85 = Exceeds Target &nbsp;| &nbsp;0.86–1.00 = Exceptional
+  </div>
+
+  <div class="notice">
+    All weighted score calculations are implemented as native Excel formulae and require no macros or external add-ins. The sheet recalculates on every score entry. No data is stored externally. The file is self-contained and portable.
+  </div>
+</section>
+
+
+<!-- ── Section 8: Rationale ────────────────────────────────── -->
+<section class="section" id="rationale">
+  <h2>Why This Version: The Design Rationale</h2>
+  <hr class="section-rule">
+  <p>The decision to build a purpose-designed evaluation sheet rather than annotate the original draft was guided by four considerations that are specific to the hospitality management context and the governance obligations of Fred's Ranch &amp; Resort.</p>
+
+  <div class="rationale-grid">
+    <div class="rat-card">
+      <h3>Evidentiary Integrity</h3>
+      <p>A completed and signed evaluation must be capable of standing as a record in any employment proceeding. The original draft contained no signature provision and no mechanism for recording the evaluator's identity or the evaluation date. The new instrument satisfies these requirements in a form that is self-evidently a contemporaneous record.</p>
+    </div>
+    <div class="rat-card">
+      <h3>Eliminates Manual Calculation</h3>
+      <p>Weighted scoring performed manually introduces transcription error and creates audit risk. Formulae embedded in the sheet eliminate this: the evaluator records a score; the instrument computes the rest. This is not a convenience — it is a control.</p>
+    </div>
+    <div class="rat-card">
+      <h3>Scalable Template Architecture</h3>
+      <p>The layout is designed to be duplicated for every post in the ExCo and HOD layer. The column structure, colour coding, formula logic, and signature block are identical across all derivatives. Only the title bar, role context band, KPIs, and weights change per post. This ensures institutional consistency across the entire performance management cycle.</p>
+    </div>
+    <div class="rat-card">
+      <h3>Organisational Alignment</h3>
+      <p>The instrument situates the Operations Manager precisely within the confirmed organisational structure: reporting to Hiram Nyingi (General Manager), with the evaluation countersigned by Reagan Ogol (People &amp; Culture) and acknowledged by the incumbent (Albert Maroa). This triangulation reflects the governance hierarchy as ratified in the July 2026 organogram.</p>
+    </div>
+    <div class="rat-card">
+      <h3>Mid-Year &amp; Annual Flexibility</h3>
+      <p>The review type field accommodates both mid-year and annual evaluation cycles without modification to the instrument. This is consistent with best practice in East African hospitality management, where a mid-year check-in against targets reduces end-of-year surprises and supports progressive performance management.</p>
+    </div>
+    <div class="rat-card">
+      <h3>Faithful to the Source Framework</h3>
+      <p>No KPI has been added, removed, or reworded from the original draft. The dimension weights are preserved exactly. The instrument does not reinterpret the management's intent — it operationalises it. The source document remains the authoritative statement of what is being measured; the evaluation sheet is the mechanism for measuring it.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Section 9: Deploy ───────────────────────────────────── -->
+<section class="section" id="deploy">
+  <h2>Deployment Notes for Git &amp; Web Hosting</h2>
+  <hr class="section-rule">
+  <p>This document is designed for deployment as a static HTML file on any web host, including GitHub Pages, GitLab Pages, Netlify, or a self-hosted server. No server-side processing, database, or build system is required. The following notes are provided for the technical team responsible for publication.</p>
+
+  <div class="legal-box" style="font-family:var(--ff-sans);font-size:0.85rem;">
+    <strong>File structure (recommended repository layout):</strong><br>
+    <pre style="margin-top:0.5rem;font-family:monospace;font-size:0.8rem;line-height:1.7;color:var(--ink-mid);">frr-bsc/
+├── index.html                          ← this file
+├── FRR_Operations_Manager_BSC_Evaluation_2026.xlsx  ← download
+└── README.md                           ← brief repo description</pre>
+    <strong>GitHub Pages:</strong> Push to a repository named <code>frr-bsc</code> (or any name). Enable Pages under Settings → Pages → Source: main branch, root. The site will be live at <code>https://[org].github.io/frr-bsc/</code>.<br><br>
+    <strong>Access control:</strong> If this document is to remain internal, the repository must be <strong>private</strong>. GitHub Pages on private repositories requires a GitHub Teams or Enterprise plan. Alternatively, deploy to a password-protected hosting environment or use Netlify's password protection feature.<br><br>
+    <strong>XLSX download:</strong> The download link in this page uses an embedded base64 data URI so that the file is available with zero additional server configuration. If you prefer to serve the file separately, replace the <code>href</code> attribute of the download anchor with a relative path to the <code>.xlsx</code> file.
+  </div>
+
+  <div class="notice">
+    This HTML file has no JavaScript dependencies other than the small inline script that initialises the sidebar navigation highlight and the download link. No analytics, no cookies, no external scripts. It is suitable for hosting in a zero-trust internal environment.
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p><strong style="color:rgba(255,255,255,0.8);">Fred's Ranch &amp; Resort</strong> — Balanced Scorecard &amp; Organisational Framework 2026</p>
+  <p style="margin-top:0.4rem;">This document is a proprietary management instrument. All rights reserved. Prepared by the Management Team, Fred's Ranch &amp; Resort. For enquiries contact the General Manager's office.</p>
+  <p style="margin-top:0.4rem;color:rgba(255,255,255,0.3);">Document version: July 2026 &nbsp;|&nbsp; Instrument: Operations Manager BSC Evaluation Sheet v1.0</p>
+</footer>
+
+</main>
+</div>
+
+<!-- Inline JS: sidebar active-link highlight + xlsx download -->
+<script>
+(function() {
+  // ── Sidebar active highlighting ───────────────────────────
+  var links = document.querySelectorAll('.sidenav nav a');
+  var sections = Array.from(links).map(function(a) {
+    var id = a.getAttribute('href').replace('#', '');
+    return document.getElementById(id);
+  }).filter(Boolean);
+
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(sec) {
+      if (sec && sec.offsetTop <= scrollY) current = sec;
+    });
+    links.forEach(function(a) {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + (current && current.id)) {
+        a.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ── XLSX embedded download ───────────────────────────────
+  var b64 = "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";
+
+  var link = document.getElementById('xlsx-download');
+  if (link) {
+    link.href = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + b64;
+  }
+
+  // Also wire the hero download link
+  var heroLink = document.querySelector('.download-hero');
+  if (heroLink && heroLink.getAttribute('href') === '#download-section') {
+    // keep as anchor scroll — already set
+  }
+})();
+</script>
+
+</body>
+</html>

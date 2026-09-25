@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fred's Ranch & Resort — Balanced Scorecard & Organisational Framework 2026</title>
+  <style>
+    :root {
+      --olive: #3B4A1A;
+      --olive-mid: #4E6122;
+      --olive-pale: #8A9B5A;
+      --amber: #B5841A;
+      --amber-pale: #D4A83A;
+      --amber-tint: #FDF3DC;
+      --parchment: #F7F4EE;
+      --ink: #1C1C1A;
+      --ink-mid: #3A3A36;
+      --ink-light: #6E6E66;
+      --rule: #D8D3C8;
+      --white: #FFFFFF;
+      --bg-soft: rgba(59,74,26,0.06);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--parchment);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+
+    .page-wrap {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidenav {
+      width: 210px;
+      flex-shrink: 0;
+      background: var(--olive);
+      color: rgba(255,255,255,0.8);
+      padding: 2rem 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidenav-logo {
+      padding: 0 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 1.25rem;
+    }
+    .sidenav-logo .brand {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--amber-pale);
+      line-height: 1.25;
+    }
+    .sidenav-logo .sub {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .sidenav nav { display: grid; }
+    .sidenav nav .nav-section {
+      font-family: Arial, sans-serif;
+      font-size: 0.64rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      padding: 1rem 1.25rem 0.35rem;
+    }
+    .sidenav nav a {
+      display: block;
+      padding: 0.48rem 1.25rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      text-decoration: none;
+      color: rgba(255,255,255,0.7);
+      border-left: 2px solid transparent;
+    }
+    .sidenav nav a:hover,
+    .sidenav nav a.active {
+      border-left-color: var(--amber-pale);
+      color: var(--amber-pale);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .main {
+      flex: 1;
+      min-width: 0;
+      max-width: 900px;
+    }
+
+    .hero {
+      background: var(--olive);
+      color: var(--white);
+      padding: 4rem 3rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -80px;
+      width: 320px;
+      height: 320px;
+      background: rgba(181,132,26,0.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      position: relative;
+      z-index: 1;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber-pale);
+      margin-bottom: 0.8rem;
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      line-height: 1.18;
+      font-weight: 700;
+      max-width: 620px;
+    }
+    .hero h1 em {
+      color: var(--amber-pale);
+      font-style: italic;
+    }
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .hero-meta div {
+      min-width: 160px;
+    }
+    .hero-meta dt {
+      font-family: Arial, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 0.15rem;
+    }
+    .hero-meta dd {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.82);
+    }
+    .download-hero {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      margin-top: 2rem;
+      padding: 0.75rem 1.25rem;
+      color: var(--white);
+      text-decoration: none;
+      background: var(--amber);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+    .download-hero:hover { background: var(--amber-pale); }
+
+    .section {
+      padding: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.7rem;
+      color: var(--olive);
+      line-height: 1.2;
+    }
+    .section-rule {
+      width: 42px;
+      height: 3px;
+      background: var(--amber);
+      border: 0;
+      margin: 0 0 1.5rem;
+    }
+    .section p {
+      max-width: 72ch;
+      margin: 0 0 1rem;
+      font-size: 1.04rem;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .notice,
+    .legal-box,
+    .info-card {
+      max-width: 72ch;
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+    }
+    .notice {
+      background: var(--bg-soft);
+      border-left: 3px solid var(--olive-pale);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--ink-mid);
+    }
+    .legal-box {
+      background: var(--amber-tint);
+      border-left: 3px solid var(--amber);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .legal-box strong { color: var(--ink); }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      max-width: 72ch;
+    }
+    .score-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .score-card-head {
+      padding: 0.75rem 1rem;
+      background: var(--olive);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .score-card-head.amber {
+      background: var(--amber);
+    }
+    .score-card-body {
+      padding: 1rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+    }
+    .score-card-body ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .score-card-body li { margin-bottom: 0.45rem; }
+
+    .download-box {
+      margin-top: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.35rem;
+      background: var(--olive);
+      color: var(--white);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background: var(--white);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+    th, td {
+      border-bottom: 1px solid var(--rule);
+      padding: 0.65rem 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: var(--olive);
+      color: var(--white);
+      font-weight: 700;
+    }
+    tr:nth-child(even) td { background: rgba(59,74,26,0.03); }
+    .dim-row td {
+      background: var(--amber-tint);
+      color: var(--amber);
+      font-weight: 700;
+      border-top: 2px solid var(--amber);
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--olive);
+      color: var(--white);
+      border-radius: 2px;
+    }
+    .badge.amber { background: var(--amber); }
+
+    .org-wrap {
+      margin-top: 1.5rem;
+      border: 1px solid var(--rule);
+      background: var(--white);
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+    .org-box {
+      min-width: 700px;
+      width: 100%;
+    }
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    .org-node {
+      border-radius: 2px;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      min-height: 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .board { background: var(--olive); }
+    .exec { background: var(--amber); }
+    .hod { background: var(--olive-mid); }
+    .staff { background: #7A9940; }
+    .leaf { background: #C8D8A0; color: var(--ink); }
+    .org-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .org-small {
+      font-size: 0.66rem;
+      opacity: 0.9;
+    }
+
+    .rationale-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      max-width: 72ch;
+    }
+    .rat-card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      padding: 1rem 1.1rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+    }
+    .rat-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 0.82rem;
+      color: var(--olive);
+    }
+    .rat-card p { margin: 0; }
+
+    .page-footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.65);
+      padding: 2rem 3rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+    .page-footer p { margin: 0 0 0.5rem; }
+
+    @media (max-width: 780px) {
+      .page-wrap { display: block; }
+      .sidenav { display: none; }
+      .hero, .section, .page-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .score-grid, .rationale-grid { grid-template-columns: 1fr; }
+      .hero-meta { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <aside class="sidenav">
+      <div class="sidenav-logo">
+        <span class="brand">Fred's Ranch<br>&amp; Resort</span>
+        <span class="sub">BSC Framework 2026</span>
+      </div>
+      <nav>
+        <span class="nav-section">Document</span>
+        <a href="#purpose">Purpose &amp; Scope</a>
+        <a href="#legal">Legal Standing</a>
+
+        <span class="nav-section">Original Instrument</span>
+        <a href="#original-bsc">The Draft Scorecard</a>
+        <a href="#bsc-detail">KPI Detail</a>
+        <a href="#download-section">Download</a>
+
+        <span class="nav-section">Organisational Structure</span>
+        <a href="#organogram">Organogram Overview</a>
+        <a href="#board">Board of Directors</a>
+        <a href="#exco">Executive Committee</a>
+        <a href="#departments">Departments</a>
+
+        <span class="nav-section">Evaluation Tool</span>
+        <a href="#new-bsc">The Evaluation Sheet</a>
+        <a href="#rationale">Why This Version</a>
+        <a href="#deploy">Deployment Notes</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="hero" id="top">
+        <div class="hero-eyebrow">Confidential — Internal Management Instrument</div>
+        <h1>Balanced Scorecard &amp;<br><em>Organisational Framework</em><br>Fred's Ranch &amp; Resort, 2026</h1>
+        <dl class="hero-meta">
+          <div>
+            <dt>Property</dt>
+            <dd>Fred's Ranch &amp; Resort</dd>
+          </div>
+          <div>
+            <dt>Instrument Type</dt>
+            <dd>Balanced Scorecard — Operations Manager</dd>
+          </div>
+          <div>
+            <dt>Effective Period</dt>
+            <dd>Financial Year 2026</dd>
+          </div>
+          <div>
+            <dt>Document Status</dt>
+            <dd>Approved for Deployment</dd>
+          </div>
+        </dl>
+        <a class="download-hero" href="#download-section">↓ Download Evaluation Sheet (.xlsx)</a>
+      </header>
+
+      <section class="section" id="purpose">
+        <h2>Purpose &amp; Scope of This Document</h2>
+        <hr class="section-rule" />
+        <p>This document has been prepared for the senior leadership and human resources function of Fred's Ranch &amp; Resort. It serves three purposes: to explain the original scorecard logic, to present the operational organogram that governs it, and to provide a deployment-ready evaluation sheet for the Operations Manager role.</p>
+        <p>It is intended as a practical governance and management reference. The content is written in plain language so that it can be used by management, supervisors, and evaluators without prior specialist knowledge of scorecard methodology.</p>
+        <div class="notice">This page is a technical and governance reference document. It does not constitute a contract of employment, nor does it amend any terms and conditions of service. Evaluation outputs generated using the enclosed instrument shall be governed by the property's applicable HR policy and relevant collective bargaining agreements.</div>
+      </section>
+
+      <section class="section" id="legal">
+        <h2>Legal Standing &amp; Instrument Provenance</h2>
+        <hr class="section-rule" />
+        <p>The Balanced Scorecard method was developed by Kaplan and Norton and is commonly used in the international hospitality sector. The instrument described herein reflects an original managerial framework designed for Fred's Ranch &amp; Resort and adapted to the operational mandate of the Operations Manager.</p>
+        <div class="legal-box">
+          <strong>Authorship and Ownership.</strong> This evaluation instrument, including all KPI definitions, weights, measurement methods, and rating rubrics, constitutes proprietary management documentation belonging exclusively to Fred's Ranch &amp; Resort.<br><br>
+          <strong>Evidentiary Use.</strong> Completed evaluation sheets, once executed with signatures by the General Manager, People &amp; Culture Manager, and the incumbent, shall constitute a formal performance record and may be relied upon in a grievance or disciplinary process.<br><br>
+          <strong>Data Protection.</strong> Personal performance data recorded on any completed instance of this instrument is subject to the applicable data protection legislation of the jurisdiction in which the property operates.
+        </div>
+      </section>
+
+      <section class="section" id="original-bsc">
+        <h2>The Original Draft Scorecard: What It Was</h2>
+        <hr class="section-rule" />
+        <p>The source document, <em>Freds_Ranch_Detailed_Operations_Manager_BSC_2026.xlsx</em>, established the strategic logic of the Operations Manager performance framework. It listed the role mandate, the five performance dimensions, the weighted KPI structure, and the measurement logic against which performance would be assessed.</p>
+        <p>As a draft, it served its purpose well: it created a disciplined framework grounded in operations, culture, systems adoption, guest experience, and continuous improvement. It needed a formal deployment structure to become an implementable evaluation tool.</p>
+
+        <div class="legal-box">
+          <strong>Strategic Role Statement.</strong> The Operations Manager is responsible for daily operational consistency, SOP implementation, service quality control, operational discipline, front-line SHIELD culture enforcement, systems adoption, and operational efficiency.
+        </div>
+
+        <h3 style="margin-top: 1.6rem; color: var(--olive); font-size: 1.15rem;">The Five Performance Dimensions</h3>
+        <div class="score-grid">
+          <div class="score-card">
+            <div class="score-card-head">Original Draft — What it had</div>
+            <div class="score-card-body">
+              <ul>
+                <li>Strategic role mandate statement</li>
+                <li>Five dimensions with dimension-level weights</li>
+                <li>17 KPIs with measurement descriptions</li>
+                <li>Qualitative and quantitative targets</li>
+                <li>Readable tabular layout in Excel</li>
+              </ul>
+            </div>
+          </div>
+          <div class="score-card">
+            <div class="score-card-head amber">Evaluation Sheet — What is added</div>
+            <div class="score-card-body">
+              <ul>
+                <li>Individual KPI weights and score input columns</li>
+                <li>Evidence and notes column</li>
+                <li>Weighted score formula and total score</li>
+                <li>Banding and rating logic</li>
+                <li>Signatures, date, review type, and audit block</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="bsc-detail">
+        <h2>KPI Detail: Methodology &amp; Measurement</h2>
+        <hr class="section-rule" />
+        <p>The table below reproduces the full measurement specifications from the draft. Each KPI is paired with a measurement methodology and a target threshold that defines satisfactory performance.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>KPI</th>
+              <th>Measurement Methodology</th>
+              <th>Target</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="dim-row"><td colspan="5">Operational Excellence — 35%</td></tr>
+            <tr><td>1</td><td>SOP Compliance &amp; Institutionalisation</td><td>Monthly audits measuring SOP availability, staff awareness, adherence, checklist completion, and corrective follow-through</td><td><span class="badge">≥ 90%</span></td><td>7.00%</td></tr>
+            <tr><td>2</td><td>Daily Operations Execution</td><td>Completion of operational checklists and assigned priorities each shift</td><td><span class="badge">100%</span></td><td>7.00%</td></tr>
+            <tr><td>3</td><td>Service Consistency Score</td><td>Internal quality audits of service delivery across departments</td><td><span class="badge">≥ 90%</span></td><td>7.00%</td></tr>
+            <tr><td>4</td><td>Maintenance Response Coordination</td><td>Operational issues resolved within agreement service timelines</td><td><span class="badge amber">Within SLA</span></td><td>7.00%</td></tr>
+            <tr><td>5</td><td>Hygiene &amp; Safety Compliance</td><td>Safety inspections, hygiene audits, and compliance checks</td><td><span class="badge">≥ 95%</span></td><td>7.00%</td></tr>
+
+            <tr class="dim-row"><td colspan="5">Systems &amp; Structures — 20%</td></tr>
+            <tr><td>6</td><td>OPERA PMS &amp; POS Operational Adoption</td><td>Transactions processed via approved systems; reduction in off-system processing</td><td><span class="badge">≥ 95%</span></td><td>6.67%</td></tr>
+            <tr><td>7</td><td>Operational Reporting Compliance</td><td>Daily reports submitted on time, complete, and within error thresholds</td><td><span class="badge">100%</span></td><td>6.67%</td></tr>
+            <tr><td>8</td><td>Daily Operations Briefing Compliance</td><td>Briefing conducted, attendance achieved, action items documented and followed through</td><td><span class="badge">≥ 95%</span></td><td>6.67%</td></tr>
+
+            <tr class="dim-row"><td colspan="5">People &amp; SHIELD Culture — 20%</td></tr>
+            <tr><td>9</td><td>SHIELD Culture Adoption (Operations)</td><td>Culture audit assessing behaviour, conduct, and line leadership practices</td><td><span class="badge">≥ 90%</span></td><td>6.67%</td></tr>
+            <tr><td>10</td><td>Team Discipline &amp; Reliability</td><td>Attendance, punctuality, shift adherence, uniform compliance, and conduct incidents</td><td><span class="badge">≥ 90%</span></td><td>6.67%</td></tr>
+            <tr><td>11</td><td>Supervisor Coaching &amp; Accountability</td><td>Completion of coaching sessions and supervisory accountability reviews</td><td><span class="badge">100%</span></td><td>6.67%</td></tr>
+
+            <tr class="dim-row"><td colspan="5">Guest Experience — 15%</td></tr>
+            <tr><td>12</td><td>Guest Satisfaction (Operations)</td><td>Guest surveys and direct operational feedback; average satisfaction score</td><td><span class="badge amber">Above target</span></td><td>5.00%</td></tr>
+            <tr><td>13</td><td>Guest Complaint Resolution</td><td>Turnaround time from complaint receipt to resolution</td><td><span class="badge amber">Within SLA</span></td><td>5.00%</td></tr>
+            <tr><td>14</td><td>Service Recovery Effectiveness</td><td>Success rate in resolving escalated guest issues to satisfaction</td><td><span class="badge">≥ 90%</span></td><td>5.00%</td></tr>
+
+            <tr class="dim-row"><td colspan="5">Efficiency &amp; Continuous Improvement — 10%</td></tr>
+            <tr><td>15</td><td>Operational Efficiency Improvements</td><td>Implementation of approved operational improvements and measurable output gains</td><td><span class="badge">Quarterly</span></td><td>3.33%</td></tr>
+            <tr><td>16</td><td>Operational Downtime Reduction</td><td>Reduction in service interruptions and downtime versus prior period</td><td><span class="badge">YoY improvement</span></td><td>3.33%</td></tr>
+            <tr><td>17</td><td>Preventive Operations Planning</td><td>Percentage of preventive actions closed on time and open issues resolved before disruption</td><td><span class="badge">≥ 90%</span></td><td>3.33%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" id="download-section">
+        <h2>Download the Evaluation Sheet</h2>
+        <hr class="section-rule" />
+        <p>The evaluation-ready Microsoft Excel workbook is provided below. It is a self-contained instrument: all weights, targets, scoring formulae, and signature blocks are pre-populated. The evaluator inputs scores and evidence, and the workbook calculates the weighted totals automatically.</p>
+        <div class="notice">The file is provided in Office Open XML format (.xlsx), compatible with Microsoft Excel 2016 and later, LibreOffice Calc 7.x and later, and Google Sheets (import). Macro-free. No external links.</div>
+        <a class="download-box" href="./FRR_Operations_Manager_BSC_Evaluation_2026%20(1).xlsx" download="FRR_Operations_Manager_BSC_Evaluation_2026.xlsx">↓ Download: FRR_Operations_Manager_BSC_Evaluation_2026.xlsx</a>
+      </section>
+
+      <section class="section" id="organogram">
+        <h2>Organisational Structure — Fred's Ranch &amp; Resort, July 2026</h2>
+        <hr class="section-rule" />
+        <p>The following is a faithful representation of the organisational structure as recorded in the Board-approved organogram for July 2026. It depicts reporting lines, the span of control, and the hierarchical authority relevant to the Operations Manager evaluation.</p>
+        <div class="org-wrap" id="board">
+          <div class="org-box">
+            <div class="org-grid">
+              <div class="org-node board"><div class="org-label">Chairman</div><div class="org-small">Fred Obachi Machoka</div></div>
+              <div class="org-node board"><div class="org-label">Vice-Chairlady</div><div class="org-small">Sophie N. Machoka</div></div>
+              <div class="org-node board"><div class="org-label">Managing Director</div><div class="org-small">Victor K. Machoka</div></div>
+              <div class="org-node board"><div class="org-label">Director</div><div class="org-small">Angel O. Machoka</div></div>
+              <div class="org-node board"><div class="org-label">Sales &amp; HR Director</div><div class="org-small">Santos O. Machoka</div></div>
+              <div class="org-node board"><div class="org-label">Director</div><div class="org-small">Linda Machoka</div></div>
+              <div class="org-node exec" style="grid-column: 3 / span 2;"><div class="org-label">General Manager</div><div class="org-small">Hiram Nyingi</div></div>
+              <div class="org-node exec"><div class="org-label">Chief Accountant</div><div class="org-small">CPA Chris Mutinda</div></div>
+              <div class="org-node exec"><div class="org-label">People &amp; Culture Manager</div><div class="org-small">Reagan Ogol</div></div>
+              <div class="org-node exec"><div class="org-label">Operations Manager</div><div class="org-small">Albert Maroa</div></div>
+              <div class="org-node hod"><div class="org-label">Sales &amp; Marketing Manager</div><div class="org-small">Vacant</div></div>
+              <div class="org-node hod"><div class="org-label">Front Office Manager</div><div class="org-small">Edna Aluoch</div></div>
+              <div class="org-node hod"><div class="org-label">Food &amp; Beverage Manager</div><div class="org-small">S. Sachita</div></div>
+              <div class="org-node hod"><div class="org-label">Executive Chef</div><div class="org-small">Julius Kyalo</div></div>
+              <div class="org-node hod"><div class="org-label">ICT Manager</div><div class="org-small">David Njogu</div></div>
+              <div class="org-node staff"><div class="org-label">Facilities Manager</div><div class="org-small">Andrew Mwangi</div></div>
+              <div class="org-node staff"><div class="org-label">Finance: A/R</div><div class="org-small">M. Abiola</div></div>
+              <div class="org-node staff"><div class="org-label">Assistant F&amp;B Manager</div><div class="org-small">D. Mokua</div></div>
+              <div class="org-node staff"><div class="org-label">Head Chef</div><div class="org-small">Kenneth Chepsoi</div></div>
+              <div class="org-node staff"><div class="org-label">Systems Admin</div><div class="org-small">Samuel Kuiyoni</div></div>
+              <div class="org-node leaf"><div class="org-label">Receptionists / Loyalty Exec</div><div class="org-small">Nelson Ondari</div></div>
+              <div class="org-node leaf"><div class="org-label">Child Minders / Animators</div><div class="org-small">Lydia Olchurie</div></div>
+              <div class="org-node leaf"><div class="org-label">Restaurant Supervisor</div><div class="org-small">J. Mureithi</div></div>
+              <div class="org-node leaf"><div class="org-label">Banqueting Head Waiter</div><div class="org-small">Belinda Asembo</div></div>
+              <div class="org-node leaf"><div class="org-label">Kitchen Steward</div><div class="org-small">Winfred Kavoi</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="exco" style="margin-top:2rem;">
+          <h3 style="margin:0 0 0.5rem; color:var(--olive);">Executive Committee</h3>
+          <p>The Executive Committee comprises the General Manager and the three direct reports: the Chief Accountant, the People &amp; Culture Manager, and the Operations Manager. The Committee meets at Board level through the General Manager and provides integrated leadership over operational and governance outcomes.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Post</th>
+                <th>Incumbent</th>
+                <th>Reports to</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>General Manager</td><td>Hiram Nyingi</td><td>Board of Directors</td></tr>
+              <tr><td>Chief Accountant</td><td>CPA Chris Mutinda</td><td>General Manager</td></tr>
+              <tr><td>People &amp; Culture Manager</td><td>Reagan Ogol</td><td>General Manager</td></tr>
+              <tr><td>Operations Manager</td><td>Albert Maroa</td><td>General Manager</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="departments" style="margin-top:2rem;">
+          <h3 style="margin:0 0 0.5rem; color:var(--olive);">Departmental Structure</h3>
+          <p>Seven departments sit beneath the Executive Committee. Each is led by a head of department reporting either to the Operations Manager or to the General Manager depending on role focus.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Head of Department</th>
+                <th>Direct Reports</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Finance</td><td>CPA Chris Mutinda</td><td>Accounts Receivables, Accounts Payables, Supply Chain Manager, Cashier, Store Keeper, Procurement Officer</td></tr>
+              <tr><td>Food &amp; Beverage</td><td>S. Sachita</td><td>Assistant F&amp;B Manager, Executive Chef, Restaurant Manager, Banqueting Manager, Restaurant Supervisors</td></tr>
+              <tr><td>Kitchen</td><td>Julius Kyalo</td><td>Head Chef, Sous Chef, Kitchen Steward, Staff Chef, Chef de Partie</td></tr>
+              <tr><td>Front Office</td><td>Edna Aluoch</td><td>Night Manager, Head Receptionist, Reservation Agent, Housekeeping, Guest Relations</td></tr>
+              <tr><td>Facilities</td><td>Andrew Mwangi</td><td>Engineer, Groundsmen, Security Supervisor, Electrician, Plumber, Sanitation Staff</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="new-bsc">
+        <h2>The Evaluation Sheet: Structure &amp; Function</h2>
+        <hr class="section-rule" />
+        <p>The evaluation-ready instrument preserves all 17 KPIs from the original draft while adding the operational and evidentiary infrastructure required to make the framework usable as a performance management tool.</p>
+        <div class="score-grid">
+          <div class="score-card">
+            <div class="score-card-head">Original Draft</div>
+            <div class="score-card-body">
+              <ul>
+                <li>Strategic role statement</li>
+                <li>Five dimensions with weights</li>
+                <li>17 KPIs and targets</li>
+                <li>Measurement logic</li>
+              </ul>
+            </div>
+          </div>
+          <div class="score-card">
+            <div class="score-card-head amber">Evaluation Sheet</div>
+            <div class="score-card-body">
+              <ul>
+                <li>Individual KPI score input (1–5)</li>
+                <li>Evidence and notes column</li>
+                <li>Weighted score and total score formula</li>
+                <li>Banding, signatures, date, and review type</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice">All weighted score calculations are implemented as native Excel formulas and require no macros or external add-ins. The sheet recalculates on every score entry. No data is stored externally.</div>
+      </section>
+
+      <section class="section" id="rationale">
+        <h2>Why This Version: The Design Rationale</h2>
+        <hr class="section-rule" />
+        <p>The decision to build a purpose-designed evaluation sheet rather than annotate the original draft was guided by four practical requirements specific to hospitality management and governance.</p>
+
+        <div class="rationale-grid">
+          <div class="rat-card">
+            <h3>Evidentiary Integrity</h3>
+            <p>A complete and signed evaluation must be capable of standing as a record in any employment proceeding. The new instrument includes the signature block and date fields required to make it self-evidently evidential.</p>
+          </div>
+          <div class="rat-card">
+            <h3>Eliminates Manual Calculation</h3>
+            <p>Weighted scoring, total score, and banding are handled automatically so the evaluator records a score and the instrument calculates the rest. This reduces transcription error and risk.</p>
+          </div>
+          <div class="rat-card">
+            <h3>Scalable Template Architecture</h3>
+            <p>The layout is structured so it can be duplicated for every post across the executive and HOD layer without changing the controlling logic. Only the title, role context, KPIs, and weights change by role.</p>
+          </div>
+          <div class="rat-card">
+            <h3>Organisational Alignment</h3>
+            <p>The evaluation sits within the confirmed reporting hierarchy: the Operations Manager reports to the General Manager, with the review countersigned by People &amp; Culture and acknowledged by the incumbent. This reflects the governance hierarchy captured in the organogram.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="deploy">
+        <h2>Deployment Notes for Git &amp; Web Hosting</h2>
+        <hr class="section-rule" />
+        <p>This HTML file is designed for deployment as a static web page on any web host, including GitHub Pages, GitLab Pages, Netlify, and self-hosted servers. No server-side processing, database, or build system is required.</p>
+        <div class="legal-box">
+          <strong>Recommended repository layout:</strong><br>
+          <code>frr-bsc/</code> — this file<br>
+          <code>FRR_Operations_Manager_BSC_Evaluation_2026.xlsx</code> — the download file<br>
+          <code>README.md</code> — brief repo description<br><br>
+          <strong>GitHub Pages:</strong> Push to a repository named <code>frr-bsc</code> or similar. Enable Pages under Settings → Pages, Source: main branch, root. The site will be live at <code>https://[org].github.io/frr-bsc/</code>.<br><br>
+          <strong>Access control:</strong> If this document is intended to remain internal, keep the repository private. GitHub Pages on private repositories requires a GitHub Team or Enterprise plan. Otherwise, deploy to a password-protected hosting environment.<br><br>
+          <strong>XLSX download:</strong> The download link uses an embedded base64 or direct file path so the workbook is available with zero additional server configuration.
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p><strong>Fred's Ranch &amp; Resort</strong> — Balanced Scorecard &amp; Organisational Framework 2026</p>
+        <p>This document is proprietary management information. All rights reserved.</p>
+        <p>Document version: July 2026 — Operations Manager BSC Evaluation Sheet v1.0</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
